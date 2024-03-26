@@ -1,10 +1,7 @@
 module "components" {
+  source   = "git::https://github.com/umamanasa/expense-module-vpc.git"
 
-  source   = "git::https://github.com/umamanasa/expense-tf-module-basic.git"
-  for_each = var.components
+  for_each = var.vpc
+  cidr = each.value["cidr"]
 
-  zone_id           = var.zone_id
-  security_groups   = var.security_groups
-  name              = each.value["name"]
-  instance_type     = each.value["instance_type"]
 }
