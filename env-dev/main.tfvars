@@ -18,9 +18,10 @@ vpc = {
   }
 }
 
-default_vpc_id    = "vpc-027d9d74cfa8ed833"
-default_vpc_cidr  = "172.31.0.0/16"
-default_vpc_route_table_id = "rtb-0c2ca2a512e7fa3d7"
+default_vpc_id              = "vpc-027d9d74cfa8ed833"
+default_vpc_cidr            = "172.31.0.0/16"
+default_vpc_route_table_id  = "rtb-0c2ca2a512e7fa3d7"
+env                         = "dev"
 tags = {
   company_name = "XYZ Tech"
   business_unit = "Ecommerce"
@@ -28,4 +29,3 @@ tags = {
   cost_center   = "ecom_rs"
   created_by    = "terraform"
 }
-env = "dev"
