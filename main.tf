@@ -45,7 +45,3 @@ module "rds" {
   instance_count          = each.value["instance_count"]
   instance_class          = each.value["instance_class"]
 }
-
-  subnet_ids                    = local.db_subnets
-  vpc_id                        = local.vpc_id
-  sg_ingress_cidr               = local.app_subnets_cidr
