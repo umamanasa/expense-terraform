@@ -3,7 +3,7 @@ default_vpc_cidr            = "172.31.0.0/16"
 default_vpc_route_table_id  = "rtb-0c2ca2a512e7fa3d7"
 env                         = "dev"
 zone_id                     = "Z0365188L7MG2LV8YN4J"
-ssh_ingress_cidr            = ["172.31.22.91"]    #Workstation Private_ip
+ssh_ingress_cidr            = ["172.31.22.91/32"]    #Workstation Private_ip
 
 tags = {
   company_name = "XYZ Tech"
