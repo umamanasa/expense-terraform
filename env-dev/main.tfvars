@@ -1,3 +1,18 @@
+default_vpc_id              = "vpc-027d9d74cfa8ed833"
+default_vpc_cidr            = "172.31.0.0/16"
+default_vpc_route_table_id  = "rtb-0c2ca2a512e7fa3d7"
+env                         = "dev"
+zone_id                     = "Z0365188L7MG2LV8YN4J"
+ssh_ingress_cidr            = ["172.31.22.91"]    #Workstation Private_ip
+
+tags = {
+  company_name = "XYZ Tech"
+  business_unit = "Ecommerce"
+  project_name  = "Expense project"
+  cost_center   = "ecom_rs"
+  created_by    = "terraform"
+}
+
 vpc = {
   main = {
     cidr = "10.0.0.0/16"
@@ -16,19 +31,6 @@ vpc = {
       }
     }
   }
-}
-
-default_vpc_id              = "vpc-027d9d74cfa8ed833"
-default_vpc_cidr            = "172.31.0.0/16"
-default_vpc_route_table_id  = "rtb-0c2ca2a512e7fa3d7"
-env                         = "dev"
-
-tags = {
-  company_name = "XYZ Tech"
-  business_unit = "Ecommerce"
-  project_name  = "Expense project"
-  cost_center   = "ecom_rs"
-  created_by    = "terraform"
 }
 
 alb = {
@@ -58,5 +60,24 @@ rds = {
     skip_final_snapshot     = true
     instance_count          = 1
     instance_class          = "db.t3.small"
+  }
+}
+
+apps = {
+  frontend = {
+    instance_type     = "t2.micro"
+    port              = 80
+    desired_capacity  = 1
+    max_size          = 3
+    min_size          = 1
+    lb_priority       = 1
+  }
+  backend = {
+    instance_type     = "t2.micro"
+    port              = 8080
+    desired_capacity  = 1
+    max_size          = 3
+    min_size          = 1
+    lb_priority       = 1
   }
 }

@@ -6,3 +6,6 @@ variable "tags" {}
 variable "env" {}
 variable "alb" {}
 variable "rds" {}
+variable "apps" {}
+variable "zone_id" {}
+variable "ssh_ingress_cidr" {}
