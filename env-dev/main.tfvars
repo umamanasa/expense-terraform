@@ -71,6 +71,7 @@ apps = {
     max_size          = 3
     min_size          = 1
     lb_priority       = 1
+    lb_type           = "public"
   }
   backend = {
     instance_type     = "t2.micro"
@@ -79,5 +80,6 @@ apps = {
     max_size          = 3
     min_size          = 1
     lb_priority       = 2
+    lb_type           = "private"
   }
 }

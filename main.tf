@@ -68,6 +68,9 @@ module "app" {
   sg_ingress_cidr     = local.app_subnets_cidr
   vpc_id              = local.vpc_id
   subnet_ids          = local.app_subnets
-  alb_name            = lookup(lookup(lookup(module.alb, "private", null), "alb", null ),"dns_name", null )
-  listener            = lookup(lookup(lookup(module.alb, "private", null), "listener", null ),"arn", null )
+
+  private_alb_name    = lookup(lookup(lookup(module.alb, "private", null), "alb", null ),"dns_name", null )
+  public_alb_name     = lookup(lookup(lookup(module.alb, "public", null), "alb", null ),"dns_name", null )
+  private_listener    = lookup(lookup(lookup(module.alb, "private", null), "listener", null ),"arn", null )
+  public_listener     = lookup(lookup(lookup(module.alb, "public", null), "listener", null ),"arn", null )
 }
