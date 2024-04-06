@@ -72,6 +72,7 @@ apps = {
     min_size          = 1
     lb_priority       = 1
     lb_type           = "public"
+    parameters        = []
   }
   backend = {
     instance_type     = "t2.micro"
@@ -81,5 +82,6 @@ apps = {
     min_size          = 1
     lb_priority       = 2
     lb_type           = "private"
+    parameters        = []
   }
 }
