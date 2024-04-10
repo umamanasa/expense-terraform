@@ -4,6 +4,7 @@ default_vpc_route_table_id  = "rtb-0c2ca2a512e7fa3d7"
 env                         = "dev"
 zone_id                     = "Z0365188L7MG2LV8YN4J"
 ssh_ingress_cidr            = ["172.31.22.91/32"]    #Workstation Private_ip
+monitoring_ingress_cidr     = ["172.31.31.99/32"]    #prometheus private_ip
 
 tags = {
   company_name = "XYZ Tech"
