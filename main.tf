@@ -49,7 +49,7 @@ module "rds" {
 }
 
 module "app" {
-  depends_on = [module.rds]
+  depends_on = [module.alb, module.rds]
   source = "git::https://github.com/umamanasa/expense-module-app.git"
 
   tags                = merge(var.tags, each.value["tags"])
