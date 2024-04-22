@@ -14,6 +14,8 @@ tags = {
   created_by    = "terraform"
 }
 
+az = ["us-east-1a", "us-east-1b"]
+
 vpc = {
   main = {
     cidr = "10.0.0.0/16"
@@ -65,7 +67,7 @@ rds = {
 }
 
 apps = {
-  frontend = {
+  expense-frontend = {
     instance_type     = "t2.micro"
     port              = 80
     desired_capacity  = 1
@@ -76,7 +78,7 @@ apps = {
     parameters        = []
     tags              = { Monitor_Nginx = "yes" }
   }
-  backend = {
+  expense-backend = {
     instance_type     = "t2.micro"
     port              = 8080
     desired_capacity  = 1
