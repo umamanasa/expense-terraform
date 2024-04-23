@@ -67,7 +67,7 @@ rds = {
 }
 
 apps = {
-  expense-frontend = {
+  frontend = {
     instance_type     = "t2.micro"
     port              = 80
     desired_capacity  = 1
@@ -78,7 +78,7 @@ apps = {
     parameters        = []
     tags              = { Monitor_Nginx = "yes" }
   }
-  expense-backend = {
+  backend = {
     instance_type     = "t2.micro"
     port              = 8080
     desired_capacity  = 1
