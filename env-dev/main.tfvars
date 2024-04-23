@@ -75,7 +75,7 @@ apps = {
     min_size          = 1
     lb_priority       = 1
     lb_type           = "public"
-    parameters        = []
+    parameters        = ["nexus"]
     tags              = { Monitor_Nginx = "yes" }
   }
   backend = {
@@ -86,7 +86,7 @@ apps = {
     min_size          = 1
     lb_priority       = 2
     lb_type           = "private"
-    parameters        = ["rds"]
+    parameters        = ["rds", "nexus"]
     tags              = {}
   }
 }
