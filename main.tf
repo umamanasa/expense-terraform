@@ -24,7 +24,7 @@ module "alb" {
   vpc_id                      = each.value["internal"] ? local.vpc_id : var.default_vpc_id
   subnets                     = each.value["internal"] ? local.app_subnets : data.aws_subnets.subnets.ids
   sg_port                     = each.value["sg_port"]
-
+  acm_certificate_arn         = var.acm_certificate_arn
 }
 
 module "rds" {
@@ -46,6 +46,7 @@ module "rds" {
   skip_final_snapshot     = each.value["skip_final_snapshot"]
   instance_count          = each.value["instance_count"]
   instance_class          = each.value["instance_class"]
+#   kms_key_id              = var.kms_key_id
 }
 
 module "app" {
@@ -59,6 +60,7 @@ module "app" {
   default_vpc_id      = var.default_vpc_id
   monitoring_ingress_cidr = var.monitoring_ingress_cidr
   az                      = var.az
+#   kms_key_id              = var.kms_key_id
 
   for_each            = var.apps
   component           = each.key
@@ -80,3 +82,11 @@ module "app" {
   public_listener     = lookup(lookup(lookup(module.alb, "public", null), "listener", null ),"arn", null )
 }
 
+resource "aws_instance" "load_runner" {
+  ami                    = data.aws_ami.ami.id
+  vpc_security_group_ids = ["sg-041096a23e28b0eb0"]
+  instance_type          = "t3.medium"
+  tags = {
+    Name = "load-runner"
+  }
+}
