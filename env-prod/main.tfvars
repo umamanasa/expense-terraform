@@ -70,7 +70,7 @@ rds = {
 
 apps = {
   frontend = {
-    instance_type     = "t2.micro"
+    instance_type     = "t3.small"
     port              = 80
     desired_capacity  = 2
     max_size          = 10
@@ -81,7 +81,7 @@ apps = {
     tags              = { Monitor_Nginx = "yes" }
   }
   backend = {
-    instance_type     = "t2.micro"
+    instance_type     = "t3.small"
     port              = 8080
     desired_capacity  = 2
     max_size          = 10
