@@ -1,5 +1,5 @@
-default:
-    echo None
+# default:
+#     echo None
 
 dev:
 	rm -rf .terraform
